@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggle, destroy ,selectFilteredTodos} from "../../redux/todos/todosSlice";
+import {
+  toggleTodoAsync,
+  removeTodoAsync,
+  selectFilteredTodos,
+  getTodosAsync,
+} from "../../redux/todos/todosSlice";
+import Error from "../Error";
+import Loading from "../Loading";
 function TodoList() {
-
   const dispatch = useDispatch();
   const filteredTodos = useSelector(selectFilteredTodos);
+  const isLoading = useSelector((state) => state.todos.isLoading);
 
-  const handleDestroy = (item) => {
+  const error = useSelector((state) => state.todos.error);
+  const handleDestroy = async(id) => {
+
     if (window.confirm("Are you sure ? ")) {
-      dispatch(destroy(item));
+      dispatch(removeTodoAsync(id));
     }
   };
+  const handleToggle = async (id, completed) => {
+    
+  
+    await dispatch(toggleTodoAsync({ id, data: { completed } }));
+  };
+  useEffect(() => {
+    dispatch(getTodosAsync());
+  }, [dispatch]);
 
-
-
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error message={error} />;
+  }
   return (
     <ul className="todo-list">
       {/* <li className="completed">
@@ -29,13 +50,13 @@ function TodoList() {
           <div className="view">
             <input
               checked={item.completed}
-              onChange={() => dispatch(toggle(item))}
+              onChange={() => handleToggle(item.id, item.completed)}
               className="toggle"
               type="checkbox"
             />
             <label>{item.title}</label>
             <button
-              onClick={() => handleDestroy(item)}
+              onClick={() => handleDestroy(item.id)}
               className="destroy"
             ></button>
           </div>
