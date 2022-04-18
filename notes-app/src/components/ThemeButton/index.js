@@ -1,12 +1,7 @@
-
-
-import {useDispatch, useSelector} from 'react-redux';
-import { useTheme } from '../../contexts/ThemeContext';
-
-
+// import { useDispatch, useSelector } from "react-redux";
+import { useTheme } from "../../contexts/ThemeContext";
 
 function ThemeButton() {
-
   const { theme, setTheme } = useTheme();
 
   return (
@@ -18,13 +13,8 @@ function ThemeButton() {
       >
         <div
           id="switch-toggle"
-          style={{
-            height: "42px",
-            width: "48px",
-            transition: "ease-in",
-            padding: "10px",
-          }}
-          className="w-8 h-8 relative rounded-full transition duration-500 transform  -translate-x-2 p-1 text-white"
+        
+          className="w-full h-full  relative rounded-full transition duration-500 transform  -translate-x-2 mt-2 ml-2 text-white"
         >
           {theme === "light" ? (
             <svg
@@ -40,8 +30,20 @@ function ThemeButton() {
               />
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="44px" height="48px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="#f7f8f9" d="M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm9 5h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2ZM6 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm.22-7a1 1 0 0 0-1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28a1 1 0 0 0 .72-.31a1 1 0 0 0 0-1.41ZM17 8.14a1 1 0 0 0 .69-.28l1.44-1.39A1 1 0 0 0 17.78 5l-1.44 1.42a1 1 0 0 0 0 1.41a1 1 0 0 0 .66.31ZM12 18a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-1-1Zm5.73-1.86a1 1 0 0 0-1.39 1.44L17.78 19a1 1 0 0 0 .69.28a1 1 0 0 0 .72-.3a1 1 0 0 0 0-1.42Zm-11.46 0l-1.44 1.39a1 1 0 0 0 0 1.42a1 1 0 0 0 .72.3a1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0-1.39-1.44ZM12 8a4 4 0 1 0 4 4a4 4 0 0 0-4-4Z"/></svg>
-
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="img"
+              width="44px"
+              height="48px"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#f7f8f9"
+                d="M12 6a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm9 5h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2ZM6 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm.22-7a1 1 0 0 0-1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28a1 1 0 0 0 .72-.31a1 1 0 0 0 0-1.41ZM17 8.14a1 1 0 0 0 .69-.28l1.44-1.39A1 1 0 0 0 17.78 5l-1.44 1.42a1 1 0 0 0 0 1.41a1 1 0 0 0 .66.31ZM12 18a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-1-1Zm5.73-1.86a1 1 0 0 0-1.39 1.44L17.78 19a1 1 0 0 0 .69.28a1 1 0 0 0 .72-.3a1 1 0 0 0 0-1.42Zm-11.46 0l-1.44 1.39a1 1 0 0 0 0 1.42a1 1 0 0 0 .72.3a1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0-1.39-1.44ZM12 8a4 4 0 1 0 4 4a4 4 0 0 0-4-4Z"
+              />
+            </svg>
           )}
         </div>
       </button>

@@ -20,9 +20,10 @@ function TextArea() {
       <form className="block text-left focus:border-none">
         <textarea
           onChange={(e) => setNote(e.target.value)}
+          maxLength={50}
           value={note}
           className="form-textarea resize-none dark:bg-slate-700 lg:mt-1 p-2  block w-full h-full mb-3 border-none"
-          rows="3"
+          rows="2"
           placeholder="Enter note."
         ></textarea>
       </form>

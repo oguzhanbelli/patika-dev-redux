@@ -9,7 +9,7 @@ function Search() {
     dispatch(filterNotes(e.target.value));
   };
   return (
-    <div className="mt-3 w-[200px]">
+    <div className="mt-5 w-[200px]">
       <input
         onChange={handleChange}
         type={"text"}
